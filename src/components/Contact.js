@@ -1,18 +1,75 @@
 // components/Contact.js
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message,setMessage] = useState('');
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+
+      // Create an object with the form data
+      const formData = {
+        name,
+        email,
+        message
+      };
+      console.log(formData);
+      // Make a POST request to the API endpoint
+      fetch('https://example.com/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Display a success message or perform any other actions
+            console.log('Form submitted successfully');
+          } else {
+            // Handle errors if the API request fails
+            console.error('Form submission failed');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+      // Reset form fields
+      setName('');
+      setEmail('');
+      setMessage('');
+    };
+
+
+
   return (
     <>
-    <br/> <br/> <br/>
+     <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>About Us</li>
+        </ol>
+
+      </div>
+    </section>
+
+    <section class="inner-page">
+      <div class="container">
+        <h1>Contact</h1>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div>
+    </section>
+   
       <section id="contact" className="contact section-bg">
 <div className="container" data-aos="fade-up">
 
-  <div className="section-title">
-    <h2>Contact</h2>
-    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-  </div>
-
+  
   <div className="row">
 
     <div className="col-lg-6">
@@ -44,28 +101,23 @@ const Contact = () => {
     </div>
 
     <div className="col-lg-6 mt-4 mt-md-0">
-      <form action="forms/contact.php" method="post" role="form" className="php-email-form">
-        <div className="row">
-          <div className="col-md-6 form-group">
-            <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" required/>
+    <form onSubmit={handleSubmit} className="php-email-form">
+      <div className="row">
+       <div className="col-md-12 form-group mt-3">
+          <input type="text" id="name" placeholder='Name' className="form-control" value={name} onChange={(e) => setName(e.target.value)} required/>
+        </div>
+        <div className="col-md-12 form-group mt-3">
+            <input type="email" id="email" placeholder='Email' className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} required/>
           </div>
-          <div className="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" required/>
-          </div>
+      
+        <div className="col-md-12 form-group mt-3">
+              <textarea id="message" name="message"  placeholder='Message' className="form-control"  value={message}  onChange={(e) => setMessage(e.target.value)}></textarea>
         </div>
-        <div className="form-group mt-3">
-          <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" required/>
+        <div className="col-md-12 form-group mt-3">
+        <button type="submit" className="btn btn-primary">Submit</button>
         </div>
-        <div className="form-group mt-3">
-          <textarea className="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div className="my-3">
-          <div className="loading">Loading</div>
-          <div className="error-message"></div>
-          <div className="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div className="text-center"><button type="submit">Send Message</button></div>
-      </form>
+      </div>
+    </form>
     </div>
 
   </div>

@@ -4,15 +4,24 @@ import React from 'react';
 const About = () => {
   return (
     <>
-    <br/> <br/> <br/>
-    <section id="about" className="services">
-      <div className="container" data-aos="fade-up">
+    
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
 
-        <div className="section-title">
-          <h2>About</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>About Us</li>
+        </ol>
 
+      </div>
+    </section>
+
+    <section class="inner-page">
+      <div class="container">
+        <h1>About US</h1>
+        <p>
+          Example inner page template
+        </p>
       </div>
     </section>
     </>
