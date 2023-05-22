@@ -1,11 +1,31 @@
 // components/Services.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Services = () => {
+
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Fetch JSON data from an API endpoint
+    fetch('https://gorest.co.in/public/v2/users?page=1&per_page=20')
+      .then((response) => response.json())
+      .then((jsonData) => {
+        setData(jsonData);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, []);
+
+
+
+
+
   return (
     <>
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
+    <section id="breadcrumbs" className="breadcrumbs">
+      <div className="container">
 
         <ol>
           <li><a href="/">Home</a></li>
@@ -55,8 +75,31 @@ const Services = () => {
             </div>
           </div>
 
-        </div>
-
+      </div>
+      </div>
+    </section>
+    <section className="inner-page">
+      <div className="container">
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+              {data.map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+                <td>{item.gender}</td>
+                <td>{item.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
     </>

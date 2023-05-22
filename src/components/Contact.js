@@ -48,8 +48,8 @@ const Contact = () => {
 
   return (
     <>
-     <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
+     <section id="breadcrumbs" className="breadcrumbs">
+      <div className="container">
 
         <ol>
           <li><a href="/">Home</a></li>
@@ -59,8 +59,8 @@ const Contact = () => {
       </div>
     </section>
 
-    <section class="inner-page">
-      <div class="container">
+    <section className="inner-page">
+      <div className="container">
         <h1>Contact</h1>
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div>

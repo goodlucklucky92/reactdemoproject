@@ -3,28 +3,28 @@ import React from 'react';
 import {NavLink } from 'react-router-dom';
 const Header = () => {
   return (
-    <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="/">Bikin</a></h1>
-      <nav id="navbar" class="navbar">
+    <header id="header" className="fixed-top">
+    <div className="container d-flex align-items-center justify-content-between">
+      <h1 className="logo"><a href="/">Bikin</a></h1>
+      <nav id="navbar" className="navbar">
       <ul>
         <li>
-          <NavLink exact to="/" activeClassName="nav-link action" aria-current="page">
+          <NavLink exact to="/" className="nav-link action" aria-current="page">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/about" activeClassName="nav-link">
+          <NavLink to="/about" className="nav-link">
             About
           </NavLink>
         </li>
         <li>
-          <NavLink to="/services" activeClassName="nav-link">
+          <NavLink to="/services" className="nav-link">
             Services
           </NavLink>
         </li>
         <li>
-          <NavLink to="/contact" activeClassName="nav-link">
+          <NavLink to="/contact" className="nav-link">
             Contact
           </NavLink>
         </li>

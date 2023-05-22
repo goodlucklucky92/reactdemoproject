@@ -5,8 +5,8 @@ const About = () => {
   return (
     <>
     
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
+    <section id="breadcrumbs" className="breadcrumbs">
+      <div className="container">
 
         <ol>
           <li><a href="/">Home</a></li>
@@ -16,8 +16,8 @@ const About = () => {
       </div>
     </section>
 
-    <section class="inner-page">
-      <div class="container">
+    <section className="inner-page">
+      <div className="container">
         <h1>About US</h1>
         <p>
           Example inner page template
